@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>AR.js A-Frame Location-based</title>
-    <script src="func.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GeoAR.js demo</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
-    <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
-</head>
-<body>
-    <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
-        <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-        <!-- <a-entity material='color: red' geometry='primitive: box' gps-new-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>" scale="10 10 10"></a-entity> -->
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  </head>
+
+  <body>
+    <a-scene
+      vr-mode-ui="enabled: false"
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
+    >
+      <a-text
+        value="This content will always face you."
+        look-at="[gps-camera]"
+        scale="12 12 12"
+        gps-entity-place="latitude: 24.80212; longitude: 120.97580;"
+      ></a-text>
+      
+      <a-text
+        value="AAA."
+        look-at="[gps-camera]"
+        scale="120 120 120"
+        gps-entity-place="latitude: 24.79112; longitude: 120.97480;"
+      ></a-text>
+      
+      <a-box
+        look-at="[gps-camera]"
+        scale="5 5 5"
+        color="tomato"
+        gps-entity-place="latitude: 24.79268; longitude: 120.96535;"
+      ></a-box>
+      
+      <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
-</body>
+  </body>
 </html>
